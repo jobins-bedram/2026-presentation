@@ -5,22 +5,25 @@ an AI engineer, with JoBins' transformation into an AI-leading product company a
 
 ## Deck
 
-- [`index.html`](index.html) — [reveal.js](https://revealjs.com/) deck shell (loads reveal.js from a CDN)
+- [`index.html`](index.html) — [reveal.js](https://revealjs.com/) deck shell, loading reveal.js and its
+  plugins from the local `node_modules/reveal.js` npm package
 - [`slides.md`](slides.md) — the slide content, authored in markdown via reveal.js's markdown plugin
 
 Keeping the content in `slides.md` means new chapters are just more markdown — no HTML editing needed.
 
 ## Viewing the deck
 
-No build step required.
+reveal.js is installed as an npm dependency, so the deck needs `node_modules` in place and must be
+served over HTTP (the markdown plugin fetches `slides.md`, which browsers block over `file://`).
 
 ```sh
-# Open directly in a browser
-open index.html
+# Install dependencies (reveal.js + a static file server)
+npm install
 
-# Or serve it (recommended — some browsers restrict local file:// fetches)
-npx serve .
-# then visit the printed http://localhost:... URL
+# Serve the deck
+npm start
+# (equivalent: npm run dev)
+# then visit the printed http://localhost:8000 URL
 ```
 
 Standard reveal.js controls apply: arrow keys / space to navigate, `Esc` for slide overview,

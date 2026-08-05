@@ -1,0 +1,19 @@
+{
+  "name": "2026-presentation",
+  "version": "1.0.0",
+  "private": true,
+  "description": "My Journey from Software Engineer to AI Engineer — reveal.js slide deck",
+  "scripts": {
+    "start": "serve . -l 8000",
+    "dev": "serve . -l 8000"
+  },
+  "dependencies": {
+    "reveal.js": "5.1.0"
+  },
+  "devDependencies": {
+    "serve": "^14.2.3"
+  },
+  "allowScripts": {
+    "puppeteer@25.5.0": true
+  }
+}
