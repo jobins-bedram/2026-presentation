@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>My Journey from Software Engineer to AI Engineer</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/theme/black.css" id="theme" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/plugin/highlight/monokai.css" />
+
+  <style>
+    /* Keep long titles (esp. the deck title) from overflowing the slide */
+    .reveal h1 {
+      font-size: 1.6em;
+    }
+    .reveal h2 {
+      font-size: 1.1em;
+    }
+
+    /* Chapter title slides get a bit more breathing room and a subtle divider look */
+    section[data-state="chapter"] h2 {
+      color: #f2a154;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      font-size: 0.6em;
+    }
+    .reveal blockquote {
+      box-shadow: none;
+      font-style: italic;
+      border-left: 4px solid #f2a154;
+      padding-left: 0.6em;
+    }
+    .reveal table {
+      font-size: 0.7em;
+    }
+    /* Placeholders for missing personal memories — kept visually distinct, never rendered as fact */
+    .reveal code {
+      color: #f2a154;
+    }
+  </style>
+</head>
+<body>
+  <div class="reveal">
+    <div class="slides">
+      <section data-markdown="slides.md"
+                data-separator="^\r?\n---\r?\n$"
+                data-separator-notes="^Note:"
+                data-charset="utf-8">
+      </section>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/plugin/markdown/markdown.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/plugin/highlight/highlight.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/plugin/notes/notes.js"></script>
+  <script>
+    Reveal.initialize({
+      hash: true,
+      slideNumber: true,
+      transition: 'slide',
+      plugins: [ RevealMarkdown, RevealHighlight, RevealNotes ]
+    });
+  </script>
+</body>
+</html>
