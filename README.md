@@ -1,43 +1,55 @@
-# JoBins Year in Review — Presentation
+# My Journey from Software Engineer to AI Engineer — Presentation
 
-A story-driven slide deck about transforming JoBins into an AI-leading product company.
+A personal-narrative slide deck: my path from joining JoBins as a software engineer to becoming
+an AI engineer, with JoBins' transformation into an AI-leading product company as the backdrop.
 
 ## Deck
 
-- [`year-in-review.md`](year-in-review.md) — Marp-compatible markdown slide deck
+- [`index.html`](index.html) — [reveal.js](https://revealjs.com/) deck shell (loads reveal.js from a CDN)
+- [`slides.md`](slides.md) — the slide content, authored in markdown via reveal.js's markdown plugin
 
-## Building the slides
+Keeping the content in `slides.md` means new chapters are just more markdown — no HTML editing needed.
 
-The deck uses [Marp](https://marp.app/) front matter and `##`-level heading dividers.
+## Viewing the deck
+
+No build step required.
 
 ```sh
-# HTML
-npx @marp-team/marp-cli year-in-review.md -o year-in-review.html
+# Open directly in a browser
+open index.html
 
-# PDF
-npx @marp-team/marp-cli year-in-review.md --pdf
-
-# Live preview while editing
-npx @marp-team/marp-cli -s .
+# Or serve it (recommended — some browsers restrict local file:// fetches)
+npx serve .
+# then visit the printed http://localhost:... URL
 ```
 
-## Adding a new story
+Standard reveal.js controls apply: arrow keys / space to navigate, `Esc` for slide overview,
+`S` for speaker notes.
 
-Each story is a self-contained section with the same narrative arc:
+## Deck structure
 
-1. Story title slide (`Story N · Year`)
-2. **Situation** — the status quo and its cost
-3. **Experiment** — what we tried and why
-4. **Result** — what happened
-5. **Impact** — numbers first, then the strategic payoff
-6. **Assumptions & Sources** — show the math so figures are defensible
+Slides are separated by a line containing only `---` (see `data-separator` in `index.html`).
+The deck is organized into **chapters**, each a self-contained run of slides:
 
-To append a story:
+1. Chapter title slide (`Chapter N · When`)
+2. Scene-setting — where I was, what the status quo looked like
+3. What I tried — the experiment or decision
+4. What happened — the result
+5. What it changed — impact, and (where relevant) the numbers behind it
 
-- Copy the Story 1 section structure (see the placeholder Story 2 section)
-- Add a row to the "Stories" index table near the top of the deck
+To add a chapter:
 
-## Story 1 cost model (reference)
+- Append a new run of slides after the last chapter (see the "Chapter 3 · Coming Soon" placeholder)
+- Add a row to the "My Chapters" index slide near the top of the deck
+- Follow the same arc as Chapter 2 (Situation → Spark → Experiment → Math → Impact → Sources)
+
+## Personal-memory placeholders
+
+Some slides contain a marker like `` `[add memory: first day at JoBins]` `` — these are intentional
+placeholders for personal color that hasn't been provided yet. Replace them with real memories;
+never invent biographical detail to fill them in.
+
+## Chapter 2 cost model (reference)
 
 | Parameter | Value |
 |---|---|
