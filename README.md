@@ -39,9 +39,9 @@ The deck is organized into **chapters**, each a self-contained run of slides:
 
 To add a chapter:
 
-- Append a new run of slides after the last chapter (see the "Chapter 3 · Coming Soon" placeholder)
+- Append a new run of slides after the last chapter (see the "Chapter 4 · Coming Soon" placeholder)
 - Add a row to the "My Chapters" index slide near the top of the deck
-- Follow the same arc as Chapter 2 (Situation → Spark → Experiment → Math → Impact → Sources)
+- Follow the same arc as the existing chapters (Where I was → What I tried → What happened → What it changed)
 
 ## Personal-memory placeholders
 

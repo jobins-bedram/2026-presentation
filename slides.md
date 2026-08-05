@@ -14,7 +14,8 @@
 |---|------|---------|
 | 1 | Nov 2020 | Joining JoBins — building the CRM & the core product |
 | 2 | 2023 | The ¥60 Resume — the turning point toward AI |
-| 3 | … | *(next chapter — to be continued)* |
+| 3 | `[add memory: year]` | AI Interviews — a new kind of problem |
+| 4 | … | *(next chapter — to be continued)* |
 
 Each chapter follows the same arc: **Where I was → What I tried → What happened → What it changed**
 
@@ -173,14 +174,66 @@ Savings grow with us — the cost curve no longer punished growth.
 
 <!-- .slide: data-state="chapter" -->
 
-## Chapter 3 · Coming Soon
+## Chapter 3 · `[add memory: year]`
+
+# AI Interviews
+
+### A new kind of problem
+
+---
+
+## Where I Was
+
+- After Chapter 2, I wasn't just the person who'd shipped a prompt anymore — I was someone JoBins looked to for what AI could do next
+- The next project: **AI Interviews** — using AI to run interviews directly
+- `[add memory: how the AI Interviews project came about, what problem it was meant to solve]`
+
+---
+
+## The New Problem
+
+- This one didn't look like Chapter 2. Prompts and structured JSON weren't going to be enough
+- AI Interviews meant **real-time video streaming** — and nobody on our team had ever built anything like that before
+- It was a genuinely new type of problem for us: not a smarter prompt, but real-time media, latency, and infrastructure we'd never had to reason about
+- `[add memory: first reaction to realizing video streaming was required — excitement, worry, both?]`
+
+---
+
+## What I Tried
+
+- `[add memory: how we approached learning video streaming from zero — research, prototypes, tools/frameworks evaluated]`
+- `[add memory: the technology or architecture we landed on]`
+- `[add memory: biggest technical hurdle and how we got past it]`
+
+---
+
+## What Happened
+
+- `[add memory: outcome — did it ship, what worked, what surprised us]`
+- `[add memory: any numbers worth keeping, e.g. latency, interviews run, feedback]`
+
+---
+
+## What It Changed
+
+- Chapter 2 taught me that a well-placed prompt could beat an established vendor
+- Chapter 3 taught me something different: that being an AI engineer sometimes means learning an entirely new domain from zero, under pressure, as a team
+- `[add memory: what this project changed in me / in how JoBins builds]`
+
+> `[add memory: closing line for this chapter — the moment this became more than "the video streaming project"]`
+
+<!-- Duplicate this chapter's run of slides for the next one:
+     Chapter title → Where I was → The new problem → What I tried → What happened → What it changed -->
+
+---
+
+<!-- .slide: data-state="chapter" -->
+
+## Chapter 4 · Coming Soon
 
 # *(The next chapter of my journey)*
 
-`[add memory: what happened after the resume-parsing experiment — new projects, new title, other AI work]`
-
-<!-- Duplicate a Chapter 2-style run of slides here:
-     Chapter title → Where I was → What I tried → What happened → What it changed → Assumptions -->
+`[add memory: what happened after AI Interviews — new projects, new title, other AI work]`
 
 ---
 
