@@ -6,49 +6,63 @@
 @import 'tailwindcss';
 
 @import 'reveal.js/dist/reveal.css' layer(reveal);
-@import 'reveal.js/dist/theme/black.css' layer(reveal);
+@import 'reveal.js/dist/theme/white.css' layer(reveal);
 @import 'reveal.js/plugin/highlight/monokai.css' layer(reveal);
 
+/* PDF export: Tailwind preflight's `[hidden] { display: none !important }` (layer
+   base) outranks reveal's print-mode `display: block !important` (layer reveal),
+   because !important priority across layers is reversed. Counter it from the
+   earliest layer so every slide renders when printing. */
+@layer theme {
+  html.reveal-print .reveal .slides section[hidden] {
+    display: block !important;
+  }
+}
+
 /* Self-hosted fonts (bundled by Vite — no network needed at present time) */
-@import '@fontsource-variable/space-grotesk';
+@import '@fontsource-variable/playfair-display';
 @import '@fontsource-variable/inter';
 @import '@fontsource/jetbrains-mono';
 
 /* ============================================================
-   Design tokens — modern dark theme
+   Design tokens — warm paper & dusty blue
    ============================================================ */
 :root {
-  --ink: #eceff5;          /* primary text */
-  --ink-muted: #9aa3b2;    /* secondary text */
-  --bg: #0d1017;           /* deep ink background */
-  --bg-soft: #161b26;      /* raised surfaces (code chips, table stripes) */
-  --accent: #f2a154;       /* warm amber */
-  --accent-soft: rgba(242, 161, 84, 0.08);
-  --accent-border: rgba(242, 161, 84, 0.45);
-  --line: rgba(236, 239, 245, 0.12);
+  --ink: #1d2530;          /* primary text — dark slate blue-grey */
+  --ink-muted: #4a5868;    /* secondary text */
+  --bg: #f7f2e8;           /* warm cream paper */
+  --bg-soft: #eceff5;      /* raised surfaces (code chips, table stripes) */
+  --accent: #5b7ca6;       /* dusty steel blue */
+  --accent-deep: #33496c;  /* darker blue for emphasis */
+  --accent-soft: rgba(91, 124, 166, 0.1);
+  --accent-border: rgba(91, 124, 166, 0.45);
+  --accent-red: #a8402f;   /* deep warm red — secondary accent */
+  --accent-yellow: #c9921e; /* golden amber — secondary accent */
+  --line: rgba(58, 74, 94, 0.16);
 
   /* Reveal theme variable overrides */
   --r-background-color: var(--bg);
   --r-main-color: var(--ink);
-  --r-heading-color: var(--ink);
+  --r-heading-color: #2b4460;
   --r-main-font: 'Inter Variable', 'Inter', system-ui, sans-serif;
-  --r-heading-font: 'Space Grotesk Variable', 'Space Grotesk', system-ui, sans-serif;
+  --r-heading-font: 'Playfair Display Variable', 'Playfair Display', Georgia, serif;
   --r-code-font: 'JetBrains Mono', ui-monospace, monospace;
   --r-main-font-size: 36px;
   --r-heading-text-transform: none;
-  --r-heading-font-weight: 700;
-  --r-heading-letter-spacing: -0.02em;
+  --r-heading-font-weight: 600;
+  --r-heading-letter-spacing: 0;
   --r-link-color: var(--accent);
-  --r-link-color-hover: #ffc07e;
+  --r-link-color-hover: var(--accent-deep);
   --r-selection-background-color: var(--accent);
 }
 
-/* Ambient backdrop glow behind every slide */
+/* Paper backdrop with abstract blue circles, rings and dots in the corners */
 .reveal-viewport {
-  background:
-    radial-gradient(1200px 700px at 12% -10%, rgba(242, 161, 84, 0.07), transparent 60%),
-    radial-gradient(1000px 700px at 105% 110%, rgba(93, 138, 255, 0.06), transparent 55%),
-    var(--bg);
+  background-color: var(--bg);
+  background-image: url('./decorations.svg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 
 /* ============================================================
@@ -66,8 +80,7 @@
 
 .reveal h1 {
   font-size: 1.7em;
-  line-height: 1.15;
-  letter-spacing: -0.02em;
+  line-height: 1.18;
 }
 .reveal h2 {
   font-size: 1.15em;
@@ -75,8 +88,9 @@
   margin-bottom: 0.9em;
 }
 .reveal h3 {
-  font-size: 0.85em;
+  font-size: 0.8em;
   font-weight: 500;
+  font-family: var(--r-main-font);
   color: var(--ink-muted);
 }
 .reveal p,
@@ -84,14 +98,14 @@
   line-height: 1.55;
 }
 .reveal strong {
-  color: #fff;
+  color: #141e2b;
   font-weight: 650;
 }
 .reveal em {
   color: var(--ink-muted);
 }
 
-/* Slide titles get a short amber rule underneath */
+/* Slide titles get a short blue rule underneath */
 .reveal section:not([data-state='chapter']):not(.centered) > h2::after,
 .reveal section:not([data-state='chapter']):not(.centered) > div > div > h2::after {
   content: '';
@@ -100,7 +114,17 @@
   height: 4px;
   border-radius: 2px;
   margin-top: 0.35em;
-  background: var(--accent);
+  background: linear-gradient(90deg, var(--accent-red), var(--accent-yellow));
+}
+
+/* Red→yellow gradient text for key highlights (title span, big numbers) */
+@layer components {
+  .accent-gradient-text {
+    background: linear-gradient(90deg, var(--accent-red), var(--accent-yellow));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
 }
 
 /* ============================================================
@@ -122,11 +146,11 @@
   content: '';
   position: absolute;
   left: 0;
-  top: 0.62em;
+  top: 0.6em;
   width: 0.42em;
   height: 0.42em;
-  border-radius: 1px;
-  background: var(--accent);
+  border-radius: 50%;
+  background: var(--accent-yellow);
   opacity: 0.85;
 }
 
@@ -136,10 +160,11 @@
 }
 
 /* ============================================================
-   Hero slides: title, chapters, thank-you
+   Hero slides: title & chapter dividers
    ============================================================ */
 section[data-state='chapter'] h2 {
-  color: var(--accent);
+  font-family: var(--r-main-font);
+  color: var(--accent-deep);
   text-transform: uppercase;
   letter-spacing: 0.22em;
   font-size: 0.55em;
@@ -162,7 +187,8 @@ section[data-state='chapter'] h3 {
 }
 
 .centered .kicker {
-  color: var(--accent);
+  font-family: var(--r-main-font);
+  color: var(--accent-deep);
   text-transform: uppercase;
   letter-spacing: 0.22em;
   font-size: 0.5em;
@@ -201,13 +227,13 @@ section[data-state='chapter'] h3 {
   padding: 0.5em 0.9em;
 }
 .reveal table tbody tr:nth-child(even) td {
-  background: rgba(236, 239, 245, 0.025);
+  background: rgba(91, 124, 166, 0.05);
 }
 .reveal table tbody tr:last-child td {
   border-bottom: none;
 }
 .reveal table td strong {
-  color: var(--accent);
+  color: var(--accent-deep);
 }
 
 /* ============================================================
@@ -219,12 +245,12 @@ section[data-state='chapter'] h3 {
   font-size: 0.78em;
   line-height: 1.5;
   width: 100%;
-  border-left: 3px solid var(--accent);
+  border-left: 3px solid var(--accent-red);
   border-radius: 0 10px 10px 0;
   background: var(--accent-soft);
   padding: 0.7em 1em;
   margin-top: 1em;
-  color: #f5e9dc;
+  color: var(--accent-deep);
 }
 
 /* ============================================================
@@ -237,7 +263,7 @@ section[data-state='chapter'] h3 {
   border: 1px solid var(--line);
   border-radius: 6px;
   padding: 0.08em 0.4em;
-  color: #a5c8ff;
+  color: var(--accent-deep);
 }
 
 /* Placeholders for missing personal memories — visually distinct TODO chips,
@@ -248,7 +274,7 @@ section[data-state='chapter'] h3 {
   font-style: italic;
   font-size: 0.85em;
   line-height: 1.35;
-  color: var(--accent);
+  color: var(--accent-deep);
   background: var(--accent-soft);
   border: 1px dashed var(--accent-border);
   border-radius: 8px;
@@ -272,6 +298,7 @@ section[data-state='chapter'] h3 {
 .reveal .progress {
   height: 4px;
   color: var(--accent);
+  background: rgba(91, 124, 166, 0.15);
 }
 .reveal .slide-number {
   background: transparent;
@@ -286,6 +313,6 @@ section[data-state='chapter'] h3 {
 /* Intro portrait */
 .reveal img.portrait {
   border-radius: 18px;
-  box-shadow: 0 22px 50px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 18px 44px rgba(68, 97, 140, 0.28);
   outline: 1px solid var(--line);
 }

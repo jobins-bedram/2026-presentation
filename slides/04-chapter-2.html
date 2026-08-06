@@ -1,0 +1,248 @@
+        <!-- Chapter 2 -->
+        <section data-state="chapter">
+            <h2>Chapter 2 · 2023</h2>
+            <h1>The ¥60 Resume</h1>
+            <h3>The moment I started becoming an AI engineer</h3>
+            <aside class="notes">
+                Chapter 2 — 2023. The ¥60 resume. This is the moment everything changed for me.
+            </aside>
+        </section>
+        
+        <section>
+            <h2>Before the Spark</h2>
+            <ul>
+                <li>Every resume that entered JoBins had to be parsed into structured data</li>
+                <li>We relied on
+                    <strong>Dextra</strong>
+                    , a third-party parsing service, to do it
+                </li>
+                <li>Price:
+                    <strong>~¥60 per resume</strong>
+                    — every single one
+                </li>
+                <li>The cost scaled linearly with our growth: more candidates, bigger bill</li>
+                <li>I didn't control the quality, the format, or the roadmap — someone else did</li>
+            </ul>
+            <blockquote>The better we did as a business, the more we paid someone else.</blockquote>
+            <aside class="notes">
+                Every resume entering JoBins had to become structured data, and we paid Dextra about
+                ¥60 per resume — every single one. The cost scaled with our growth, and we controlled
+                nothing: not the quality, not the format, not the roadmap. The better we did, the more
+                we paid someone else.
+            </aside>
+        </section>
+        
+        <section>
+            <h2>The Spark — Early 2023</h2>
+            <ul>
+                <li>Then OpenAI released
+                    <strong>GPT-3.5</strong>
+                    (
+                    <code>gpt-3.5-turbo</code>
+                    ) — API access at
+                    <strong>$0.002 / 1K tokens</strong>
+                </li>
+                <li>I couldn't stop thinking about one question:</li>
+            </ul>
+            <blockquote>
+                <em>"Can a general-purpose LLM parse a resume as well as a purpose-built service — at a fraction of the cost?"</em>
+            </blockquote>
+            <ul>
+                <li>So I gave myself an afternoon to find out — and built a
+                    <strong>basic prototype</strong>
+                </li>
+                <li>It parsed quite accurately — even
+                    <strong>Japanese resumes</strong>
+                </li>
+            </ul>
+            <aside class="notes">
+                Then OpenAI released GPT-3.5 with API access at $0.002 per thousand tokens. I couldn't
+                stop thinking: could a general-purpose LLM match a purpose-built parsing service? So I
+                gave myself one afternoon and built a basic prototype. And it parsed accurately —
+                even Japanese resumes.
+            </aside>
+        </section>
+        
+        <section>
+            <h2>The Doubt — and the Challenge</h2>
+            <ul>
+                <li>Still, I wasn't sure. Building a prototype was one thing —
+                    <strong>integrating it into production</strong>
+                    was another
+                </li>
+                <li>Then one day,
+                    <strong>Sazn dai</strong>
+                    gave me the challenge: build resume parsing — for real
+                </li>
+                <li>My team and I started building. The problems we'd worried about?
+                    <strong>We solved them</strong>
+                </li>
+                <li>We
+                    <strong>replaced Dextra</strong>
+                    in candidate management — and from there it spread: job management, selection management, and later
+                    <strong>AICA</strong>
+                    as well
+                </li>
+            </ul>
+            <aside class="notes">
+                But honestly — I wasn't sure. A prototype is one thing; production is another. Then Sazn
+                dai gave me the challenge: build it for real. So my team and I did. We solved the problems
+                we'd been worried about, replaced Dextra in candidate management — and from there it
+                spread to job management, selection management, and later AICA.
+            </aside>
+        </section>
+        
+        <section>
+            <h2>The Math — Cost per Resume</h2>
+            <p>Side-by-side against Dextra on real resumes:
+                <strong>comparably good parsing quality</strong>
+               —
+               no fine-tuning, no new infrastructure, just a well-designed prompt.
+            </p>
+            <table>
+                <thead>
+                    <tr>
+                        <th></th>
+                        <th>Dextra</th>
+                        <th>GPT-3.5</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Pricing model</td>
+                        <td>flat fee per resume</td>
+                        <td>$0.002 per 1K tokens</td>
+                    </tr>
+                    <tr>
+                        <td>Usage per resume</td>
+                        <td>1 parse</td>
+                        <td>~5,000 tokens</td>
+                    </tr>
+                    <tr>
+                        <td>Cost (USD)</td>
+                        <td>—</td>
+                        <td>5 × $0.002 =
+                            <strong>$0.010</strong>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Cost (JPY @ ¥140/USD)</td>
+                        <td>
+                            <strong>¥60.0</strong>
+                        </td>
+                        <td>
+                            <strong>¥1.4</strong>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <h1 class="!mt-8 accent-gradient-text">~98% cheaper</h1>
+            <p>(1 − 1.4 / 60 =
+                <strong>97.7% cost reduction</strong>
+               )
+            </p>
+            <aside class="notes">
+                The quality was comparably good — with no fine-tuning, no new infrastructure, just a
+                well-designed prompt. And here's the math: a resume takes about 5,000 tokens, which
+                costs one cent — about ¥1.4 — versus ¥60 with Dextra. Roughly 98% cheaper.
+            </aside>
+        </section>
+        
+        <section>
+            <h2>What That Meant at Scale</h2>
+            <p>Monthly savings at different volumes (¥60 → ¥1.4 per resume):</p>
+            <table class="[&_td]:text-right [&_th]:text-right">
+                <thead>
+                    <tr>
+                        <th>Resumes / month</th>
+                        <th>Dextra</th>
+                        <th>GPT-3.5</th>
+                        <th>Saved / month</th>
+                        <th>Saved / year</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1,000</td>
+                        <td>¥60,000</td>
+                        <td>¥1,400</td>
+                        <td>
+                            <strong>¥58,600</strong>
+                        </td>
+                        <td>¥703,200</td>
+                    </tr>
+                    <tr>
+                        <td>5,000</td>
+                        <td>¥300,000</td>
+                        <td>¥7,000</td>
+                        <td>
+                            <strong>¥293,000</strong>
+                        </td>
+                        <td>¥3,516,000</td>
+                    </tr>
+                    <tr>
+                        <td>10,000</td>
+                        <td>¥600,000</td>
+                        <td>¥14,000</td>
+                        <td>
+                            <strong>¥586,000</strong>
+                        </td>
+                        <td>¥7,032,000</td>
+                    </tr>
+                    <tr>
+                        <td>50,000</td>
+                        <td>¥3,000,000</td>
+                        <td>¥70,000</td>
+                        <td>
+                            <strong>¥2,930,000</strong>
+                        </td>
+                        <td>¥35,160,000</td>
+                    </tr>
+                </tbody>
+            </table>
+            <p>Savings grow with us — the cost curve no longer punished growth.</p>
+            <aside class="notes">
+                At scale this really matters. At ten thousand resumes a month, that's over half a million
+                yen saved monthly — seven million a year. And the key point: the savings grow with us.
+                Growth stopped being something we paid a vendor for.
+            </aside>
+        </section>
+        
+        <section>
+            <h2>Beyond the Money — What Changed in Me</h2>
+            <ul>
+                <li>
+                    <strong>Independence</strong>
+                    — no third-party lock-in for a core pipeline
+                </li>
+                <li>
+                    <strong>Control</strong>
+                    — we owned the prompt, the schema, the quality bar
+                </li>
+                <li>
+                    <strong>Speed</strong>
+                    — new fields or formats became a prompt change, not a vendor request
+                </li>
+                <li>
+                    <strong>A precedent</strong>
+                    — proof that a small AI experiment could beat an established vendor
+                </li>
+                <li>
+                    <strong>And for me personally</strong>
+                    — proof that I could build
+                    <em>with</em>
+                    AI, not just build software
+                </li>
+            </ul>
+            <blockquote>
+                That afternoon wasn't about saving ¥58 per resume.
+                <br/>
+                It was the moment I started becoming an AI engineer instead of just a software engineer.
+            </blockquote>
+            <aside class="notes">
+                But the money was the smallest part. We gained independence — no vendor lock-in on a core
+                pipeline. Control — we owned the prompt and the quality bar. Speed — new fields became a
+                prompt change. And for me personally: proof that I could build WITH AI, not just build
+                software. That afternoon is when I started becoming an AI engineer.
+            </aside>
+        </section>
