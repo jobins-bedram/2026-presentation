@@ -32,7 +32,7 @@ Reveal.initialize({
   slideNumber: 'c/t',
   progress: true,
   width: 1280,
-  height: 720,
+  height: 960,
   margin: 0.07,
   transition: 'slide',
   backgroundTransition: 'fade',
