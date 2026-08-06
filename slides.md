@@ -40,8 +40,8 @@ add a row to "My Chapters" above.
 ## My First Day
 
 - In November 2020, I joined JoBins as a software engineer
-- `[add memory: first day at JoBins — who I met, how it felt, first impressions]`
-- I was handed my first real assignment: the **CRM project**
+- My first real assignment was the **CRM project**
+- That's where I met **Puncoz-san** — I was genuinely impressed by his work, and it planted a dream: to become as excellent an engineer as him
 
 ---
 
