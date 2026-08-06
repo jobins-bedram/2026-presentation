@@ -12,6 +12,8 @@ import chapter1 from './slides/03-chapter-1.html?raw';
 import chapter2 from './slides/04-chapter-2.html?raw';
 import chapter3 from './slides/05-chapter-3.html?raw';
 import chapter4 from './slides/06-chapter-4.html?raw';
+import learnings from './slides/07-learnings.html?raw';
+import thankYou from './slides/08-thank-you.html?raw';
 
 document.querySelector('.reveal .slides').innerHTML = [
   title,
@@ -21,6 +23,8 @@ document.querySelector('.reveal .slides').innerHTML = [
   chapter2,
   chapter3,
   chapter4,
+  learnings,
+  thankYou,
 ].join('\n');
 
 Reveal.initialize({
