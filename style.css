@@ -44,8 +44,8 @@
   --r-background-color: var(--bg);
   --r-main-color: var(--ink);
   --r-heading-color: #2b4460;
-  --r-main-font: 'Inter Variable', 'Inter', system-ui, sans-serif;
-  --r-heading-font: 'Playfair Display Variable', 'Playfair Display', Georgia, serif;
+  --r-main-font: 'Inter Variable', 'Inter', 'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Meiryo', system-ui, sans-serif;
+  --r-heading-font: 'Playfair Display Variable', 'Playfair Display', 'Hiragino Mincho ProN', Georgia, serif;
   --r-code-font: 'JetBrains Mono', ui-monospace, monospace;
   --r-main-font-size: 36px;
   --r-heading-text-transform: none;
