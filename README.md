@@ -5,22 +5,23 @@ an AI engineer, with JoBins' transformation into an AI-leading product company a
 
 ## Deck
 
-- [`index.html`](index.html) — [reveal.js](https://revealjs.com/) deck shell (loads reveal.js from a CDN)
-- [`slides.md`](slides.md) — the slide content, authored in markdown via reveal.js's markdown plugin
+Built with [Vite](https://vitejs.dev/), [reveal.js](https://revealjs.com/), and
+[Tailwind CSS](https://tailwindcss.com/) (v4, via `@tailwindcss/vite`).
 
-Keeping the content in `slides.md` means new chapters are just more markdown — no HTML editing needed.
+- [`index.html`](index.html) — the deck: every slide is a `<section>` in plain HTML, styled with
+  Tailwind utilities on top of the reveal.js `black` theme
+- [`main.js`](main.js) — reveal.js initialization (plugins: highlight, notes)
+- [`style.css`](style.css) — Tailwind + reveal.js CSS imports (layered so utilities override the
+  theme, and the theme survives Tailwind's preflight) plus deck-wide type-scale overrides
+- [`vite.config.js`](vite.config.js) — Vite config with the Tailwind plugin
 
 ## Viewing the deck
 
-No build step required.
-
 ```sh
-# Open directly in a browser
-open index.html
-
-# Or serve it (recommended — some browsers restrict local file:// fetches)
-npx serve .
-# then visit the printed http://localhost:... URL
+npm install
+npm run dev        # dev server with hot reload — visit the printed URL
+npm run build      # production build into dist/
+npm run preview    # serve the production build
 ```
 
 Standard reveal.js controls apply: arrow keys / space to navigate, `Esc` for slide overview,
@@ -28,7 +29,7 @@ Standard reveal.js controls apply: arrow keys / space to navigate, `Esc` for sli
 
 ## Deck structure
 
-Slides are separated by a line containing only `---` (see `data-separator` in `index.html`).
+Each slide is a `<section>` inside `<div class="slides">` in `index.html`.
 The deck is organized into **chapters**, each a self-contained run of slides:
 
 1. Chapter title slide (`Chapter N · When`)
