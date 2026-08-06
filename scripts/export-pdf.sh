@@ -17,7 +17,7 @@ until curl -sf "$URL/" >/dev/null; do sleep 0.3; done
 # Chrome sometimes prints before reveal.js finishes its print layout, yielding
 # a blank one-pager well under 1 MB — retry until the output looks complete.
 print() {
-  for attempt in 1 2 3 4 5; do
+  for attempt in 1 2 3 4 5 6 7 8; do
     "$CHROME" --headless --disable-gpu \
       --run-all-compositor-stages-before-draw --virtual-time-budget=30000 \
       --no-pdf-header-footer --print-to-pdf="$1" "$2" 2>/dev/null
@@ -28,7 +28,7 @@ print() {
     fi
     echo "retrying $1 (attempt $attempt rendered blank)"
   done
-  echo "ERROR: $1 still blank after 5 attempts" >&2
+  echo "ERROR: $1 still blank after 8 attempts" >&2
   return 1
 }
 

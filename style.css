@@ -105,18 +105,32 @@
   color: var(--ink-muted);
 }
 
-/* Japanese translation lines — muted, tucked under the English text */
+/* Japanese translation lines — small and muted, tucked under the English text */
 .reveal .jp {
   display: block;
-  font-size: 0.86em;
+  font-size: 0.68em;
   color: var(--ink-muted);
-  margin-top: 0.12em;
+  margin-top: 0.1em;
+  font-family: var(--r-main-font);
+  font-weight: 450;
+}
+.reveal h1 .jp {
+  font-size: 0.34em;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  margin-top: 0.4em;
 }
 .reveal h2 .jp {
-  font-size: 0.55em;
-  font-family: var(--r-main-font);
+  font-size: 0.48em;
   font-weight: 500;
   margin-top: 0.25em;
+}
+.reveal h3 .jp {
+  font-size: 0.8em;
+}
+.reveal blockquote .jp {
+  font-style: normal;
+  font-size: 0.8em;
 }
 
 /* Slide titles get a short blue rule underneath */
